@@ -1,0 +1,155 @@
+///botton1
+@mixin formato-boton() {
+  font-size: 18px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  will-change: box-shadow, transform;
+  background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%);
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+    0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+    inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  &:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
+      0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+
+    transform: translateY(-0.1em);
+  }
+  &:active {
+    box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+    transform: translateY(0em);
+  }
+}
+///botton2
+$color-main: #0075ff;
+@mixin formato-boton2() {
+  background-color: $color-main;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 10em;
+  border-radius: 1rem;
+  color: white;
+  box-shadow: 0 0.4rem rgb(7, 18, 66);
+  cursor: pointer;
+
+  &:active {
+    color: white;
+    box-shadow: 0 0.2rem #dad9df;
+    transform: translateY(0.2rem);
+  }
+
+  &:hover:not(:disabled) {
+    background: white;
+    color: $color-main;
+    text-shadow: 0 0.1rem #bcb4b4;
+  }
+
+  &:disabled {
+    cursor: auto;
+    color: grey;
+  }
+
+  // background-color: $color-main;
+  // color: white;
+  // border: solid 1px $color-main;
+  // &:hover {
+  //   background-color: white;
+  //   color: $color-main;
+  // }
+}
+///Input
+@mixin form-input() {
+  --width-of-input: 200px;
+  --border-height: 1px;
+  --border-before-color: rgba(221, 221, 221, 0.39);
+  --border-after-color: #5891ff;
+  --input-hovered-color: #4985e01f;
+  position: relative;
+  width: var(--width-of-input);
+
+  /* styling of Input */
+  .input-text {
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+    border-bottom: var(--border-height) solid var(--border-before-color);
+
+    /* Hover on Input */
+    &:hover {
+      background: var(--input-hovered-color);
+    }
+
+    &:focus {
+      outline: none;
+    }
+    /* here is code of animated border */
+    &:focus ~ .input-border {
+      width: 93%;
+    }
+    /* === if you want to do animated border on typing === */
+    /* remove input:focus code and uncomment below code */
+    // &:valid ~ .input-border {
+    //   width: 100%;
+    // }
+  }
+  /* styling of animated border */
+  .input-border {
+    position: absolute;
+    background: var(--border-after-color);
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 10;
+    transition: 0.3s;
+  }
+}
+///img
+@mixin img-animated() {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    animation: swing 1s ease;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes swing {
+    15% {
+      -webkit-transform: translateX(5px);
+      transform: translateX(5px);
+    }
+    30% {
+      -webkit-transform: translateX(-5px);
+      transform: translateX(-5px);
+    }
+    50% {
+      -webkit-transform: translateX(3px);
+      transform: translateX(3px);
+    }
+    65% {
+      -webkit-transform: translateX(-3px);
+      transform: translateX(-3px);
+    }
+    80% {
+      -webkit-transform: translateX(2px);
+      transform: translateX(2px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+}
