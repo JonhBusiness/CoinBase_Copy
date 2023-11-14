@@ -1,0 +1,11 @@
+runtime: python39  # Esto puede variar según el entorno que estés utilizando
+handlers:
+- url: /
+  static_files: proyecto.html
+  upload: proyecto.html
+- url: /assets/img
+  static_dir: assets/img
+- url: /css/styles.css
+  static_dir: /css/styles.css
+  - url: /sass
+  static_dir: /sass
